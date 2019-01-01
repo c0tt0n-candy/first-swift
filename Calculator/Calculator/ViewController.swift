@@ -18,7 +18,7 @@ enum Operator {
 
 class ViewController: UIViewController {
     var firstValue = 0
-    var secondValue = 0
+    var secondValue: Int?
     var currentOperation = Operator.undefined
     
     override func viewDidLoad() {
@@ -59,8 +59,12 @@ class ViewController: UIViewController {
             firstValue = firstValue * 10 + value
             label.text = "\(firstValue)"
         } else {
-            secondValue = secondValue * 10 + value
-            label.text = "\(secondValue)"
+            if let second = secondValue {
+                secondValue = second * 10 + value
+            } else {
+                secondValue = value
+            }
+            label.text = "\(secondValue!)"
         }
     }
     
@@ -80,29 +84,43 @@ class ViewController: UIViewController {
     }
     
     @IBAction func equalButtonTapped(_ sender: UIButton) {
-        var value = 0
-        switch currentOperation {
-        case .addition:
-            value = firstValue + secondValue
-        case .subtraction:
-            value = firstValue - secondValue
-        case .multiplication:
-            value = firstValue * secondValue
-        case .division:
-            value = firstValue / secondValue
-        case .undefined:
-            value = firstValue
+        var result: Int?
+        if let second = secondValue {
+            switch currentOperation {
+            case .addition:
+                result = firstValue + second
+            case .subtraction:
+                result = firstValue - second
+            case .multiplication:
+                result = firstValue * second
+            case .division:
+                if (second != 0) {
+                    result = firstValue / second
+                }
+            case .undefined:
+                result = firstValue
+            }
+        } else {
+            result = firstValue
         }
-        label.text = "\(value)"
-        firstValue = 0
-        secondValue = 0
-        currentOperation = .undefined
+        
+        if let res = result {
+            label.text = "\(res)"
+        } else {
+            label.text = "Not a number"
+        }
+        
+        clearData()
     }
     
     @IBAction func allClearButtonTapped(_ sender: UIButton) {
+        clearData()
+        label.text = "\(firstValue)"
+    }
+    
+    private func clearData() {
         firstValue = 0
-        secondValue = 0
+        secondValue = nil
         currentOperation = .undefined
-        label.text = "0"
     }
 }
