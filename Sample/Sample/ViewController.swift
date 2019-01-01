@@ -15,6 +15,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBOutlet weak var label: UILabel!
 
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        label.text = "Tapped!"
+    }
 }
-
