@@ -21,14 +21,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
 
     @IBAction func tenSecButtonTapped(_ sender: UIButton) {
+        timer?.invalidate()
         start(seconds: 10)
     }
 
     @IBAction func threeMinButtonTapped(_ sender: UIButton) {
+        timer?.invalidate()
         start(seconds: 180)
     }
 
     @IBAction func fiveMinButtonTapped(_ sender: UIButton) {
+        timer?.invalidate()
         start(seconds: 300)
     }
 
