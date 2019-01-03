@@ -11,11 +11,12 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!
+    var info: AnimalInfo!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        navigationItem.title = info.name
+        label.text = info.description
     }
     
 

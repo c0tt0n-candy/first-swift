@@ -40,4 +40,11 @@ class ViewController: UIViewController, UITableViewDataSource {
         cell.textLabel?.text = item.name
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let selectedRow = tableView.indexPathForSelectedRow {
+            let controller = segue.destination as! DetailViewController
+            controller.info = items[selectedRow.row]
+        }
+    }
 }
