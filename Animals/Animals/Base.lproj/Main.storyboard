@@ -55,16 +55,32 @@
             </objects>
             <point key="canvasLocation" x="684" y="114.69265367316342"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="m5v-3K-hnb">
             <objects>
-                <viewController id="aK5-ks-JkR" sceneMemberID="viewController">
+                <viewController id="aK5-ks-JkR" customClass="DetailViewController" customModule="Animals" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iGC-rx-h8E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faq-OQ-Ynn">
+                                <rect key="frame" x="0.0" y="164" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gzb-3o-M2U" firstAttribute="trailing" secondItem="faq-OQ-Ynn" secondAttribute="trailing" id="K0C-zL-RhB"/>
+                            <constraint firstItem="faq-OQ-Ynn" firstAttribute="top" secondItem="Gzb-3o-M2U" secondAttribute="top" constant="100" id="ba7-J3-OPA"/>
+                            <constraint firstItem="faq-OQ-Ynn" firstAttribute="leading" secondItem="Gzb-3o-M2U" secondAttribute="leading" id="e4D-4R-jXr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Gzb-3o-M2U"/>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="faq-OQ-Ynn" id="6qB-Bj-J4l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="foq-wx-kPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
